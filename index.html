@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Camila Strassle</title>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fafaf8;
+            color: #2c2c2c;
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            min-height: 100vh;
+            padding: 60px 40px;
+        }
+
+        /* Left sidebar / navigation */
+        .sidebar {
+            width: 240px;
+            flex-shrink: 0;
+            padding-right: 50px;
+            position: sticky;
+            top: 60px;
+            align-self: flex-start;
+        }
+
+        .sidebar h1 {
+            font-family: 'EB Garamond', serif;
+            font-size: 28px;
+            font-weight: 500;
+            margin-bottom: 30px;
+            color: #1a1a1a;
+            letter-spacing: 0.5px;
+        }
+
+        .sidebar nav a {
+            display: block;
+            text-decoration: none;
+            color: #666;
+            font-size: 14px;
+            font-weight: 400;
+            padding: 6px 0;
+            transition: color 0.2s ease;
+            letter-spacing: 0.3px;
+        }
+
+        .sidebar nav a:hover,
+        .sidebar nav a.active {
+            color: #1a1a1a;
+        }
+
+        .sidebar nav a.active {
+            font-weight: 500;
+        }
+
+        /* Main content area */
+        .content {
+            flex: 1;
+            max-width: 700px;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* About section */
+        .about-photo {
+            width: 220px;
+            height: 280px;
+            object-fit: cover;
+            border-radius: 4px;
+            margin-bottom: 30px;
+            background-color: #e0ddd8;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .about-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .photo-placeholder {
+            width: 220px;
+            height: 280px;
+            background-color: #e8e5e0;
+            border-radius: 4px;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-size: 13px;
+            text-align: center;
+            padding: 20px;
+            border: 2px dashed #ccc;
+        }
+
+        .content p {
+            font-size: 15px;
+            margin-bottom: 18px;
+            color: #3a3a3a;
+        }
+
+        .content h2 {
+            font-family: 'EB Garamond', serif;
+            font-size: 24px;
+            font-weight: 500;
+            margin-bottom: 20px;
+            color: #1a1a1a;
+        }
+
+        /* Publications */
+        .publication {
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .publication:last-child {
+            border-bottom: none;
+        }
+
+        .publication .authors {
+            font-size: 14px;
+            color: #555;
+        }
+
+        .publication .title {
+            font-size: 15px;
+            font-weight: 500;
+            color: #1a1a1a;
+            margin: 4px 0;
+        }
+
+        .publication .journal {
+            font-size: 13px;
+            color: #888;
+            font-style: italic;
+        }
+
+        /* Contact */
+        .contact-info a {
+            color: #4a6fa5;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s;
+        }
+
+        .contact-info a:hover {
+            border-bottom-color: #4a6fa5;
+        }
+
+        /* Teaching & CV placeholder */
+        .placeholder-text {
+            font-size: 15px;
+            color: #888;
+            font-style: italic;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                padding: 30px 20px;
+            }
+
+            .sidebar {
+                width: 100%;
+                padding-right: 0;
+                position: static;
+                margin-bottom: 30px;
+            }
+
+            .sidebar nav {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 0 20px;
+            }
+
+            .content {
+                max-width: 100%;
+            }
+
+            .photo-placeholder, .about-photo {
+                width: 180px;
+                height: 230px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <h1>Camila Strassle</h1>
+            <nav>
+                <a href="#" class="tab-link active" data-tab="about">About</a>
+                <a href="#" class="tab-link" data-tab="research">Research</a>
+                <a href="#" class="tab-link" data-tab="publications">Publications</a>
+                <a href="#" class="tab-link" data-tab="teaching">Teaching</a>
+                <a href="#" class="tab-link" data-tab="cv">CV</a>
+                <a href="#" class="tab-link" data-tab="contact">Contact</a>
+            </nav>
+        </div>
+
+        <div class="content">
+
+            <!-- ABOUT -->
+            <div id="about" class="tab-content active">
+                <div class="about-photo">
+                    <img src="Headshot.jpeg" alt="Camila Strassle">
+                </div>
+                <p>Camila Strassle is an incoming PhD student in Sociology. She earned her JD from Stanford Law School, where she was a Knight-Hennessy Scholar and a senior editor of the law review. Before law school, she received her BA in Human Biology from Stanford University, where her undergraduate thesis won the Lyle and Olive Cook Prize.</p>
+                <p>From March 2024 to May 2025, Camila served as an assistant chief counsel at the U.S. Food and Drug Administration (FDA), advising the agency on regulatory issues related to prescription drugs. She has interned at the California Department of Justice (DOJ), specializing in health-related litigation and supporting DOJ attorneys representing local health agencies and the state medical board. Camila has held research positions at the National Institutes of Health (NIH) Department of Bioethics and the University of Pennsylvania&rsquo;s Department of Medical Ethics and Health Policy, with earlier experience in patient advocacy through the Cystic Fibrosis Foundation.</p>
+            </div>
+
+            <!-- RESEARCH -->
+            <div id="research" class="tab-content">
+                <h2>Research</h2>
+                <p>Camila&rsquo;s research bridges sociology, law, and bioethics to better understand the institutions that shape public health. She studies how different actors&mdash;such as federal agencies, state medical boards, professional societies, nonprofit disease organizations, health insurers, malpractice attorneys, and patient advocates&mdash;influence the development, use, affordability, and perception of medical treatments.</p>
+                <p>Her work has appeared in numerous journals, including the <em>New England Journal of Medicine</em>, <em>San Diego Law Review</em>, <em>William &amp; Mary Law Review</em>, and <em>Bioethics</em>. In 2026, one of her articles was featured on the cover of <em>Psychiatric Times</em>.</p>
+                <p>Camila is currently part of a research team analyzing the history of reforms to the U.S. Food and Drug Administration (FDA) to identify major themes across policy changes since 1962.</p>
+            </div>
+
+            <!-- PUBLICATIONS -->
+            <div id="publications" class="tab-content">
+                <h2>Publications</h2>
+
+                <div class="publication">
+                    <div class="authors">Nicolas Badre, David Cohen, and Camila Strassle, 2026</div>
+                    <div class="title">&ldquo;Exiting Antidepressants: A Needed Spotlight on Withdrawal&rdquo;</div>
+                    <div class="journal">Psychiatric Times</div>
+                </div>
+
+                <div class="publication">
+                    <div class="authors">David Cohen, Camila Losada Strassle, and Nicolas Badre, 2026</div>
+                    <div class="title">&ldquo;Antidepressant Use and Withdrawal: A Review of Current Evidence and Clinical Recommendations&rdquo;</div>
+                    <div class="journal">Psychiatric Clinics of North America</div>
+                </div>
+
+                <div class="publication">
+                    <div class="authors">Camila Losada Strassle, Ben Schwan, and Benjamin E Berkman, 2022</div>
+                    <div class="title">&ldquo;Autonomy Concerns with Using Contracts to Enhance Patient Adherence&rdquo;</div>
+                    <div class="journal">Bioethics</div>
+                </div>
+
+                <div class="publication">
+                    <div class="authors">Rebecca Dobra et al., 2021</div>
+                    <div class="title">&ldquo;Optimizing Equity of Access: How Should we Allocate Slots to the Most Competitive Trials in Cystic Fibrosis (CF)?&rdquo;</div>
+                    <div class="journal">Journal of Cystic Fibrosis</div>
+                </div>
+
+                <div class="publication">
+                    <div class="authors">Camila Strassle et al., 2020</div>
+                    <div class="title">&ldquo;Covid-19 Vaccine Trials and Incarcerated People&mdash;The Ethics of Inclusion&rdquo;</div>
+                    <div class="journal">New England Journal of Medicine</div>
+                </div>
+
+                <div class="publication">
+                    <div class="authors">Camila L Strassle and Steven D Pearson, 2020</div>
+                    <div class="title">&ldquo;A Proposed Framework for Patient Engagement Throughout the Broader Research Enterprise&rdquo;</div>
+                    <div class="journal">Journal of Comparative Effectiveness Research</div>
+                </div>
+
+                <div class="publication">
+                    <div class="authors">Camila Strassle and Benjamin E Berkman, 2020</div>
+                    <div class="title">&ldquo;Prisons and Pandemics&rdquo;</div>
+                    <div class="journal">San Diego Law Review</div>
+                </div>
+
+                <div class="publication">
+                    <div class="authors">Camila Strassle and Benjamin E Berkman, 2020</div>
+                    <div class="title">&ldquo;Workplace Wellness Programs: Empirical Doubt, Legal Ambiguity, and Conceptual Confusion&rdquo;</div>
+                    <div class="journal">William &amp; Mary Law Review</div>
+                </div>
+
+                <div class="publication">
+                    <div class="authors">Rabia Belt, Camila Strassle, and Celina Malav&eacute;, 2020</div>
+                    <div class="title">&ldquo;Disability and Health in the Age of Triage&rdquo;</div>
+                    <div class="journal">Harvard Law Review Blog</div>
+                </div>
+
+                <div class="publication">
+                    <div class="authors">Camila Strassle, 2019</div>
+                    <div class="title">&ldquo;Fair Subject Selection in Cystic Fibrosis Trials&rdquo;</div>
+                    <div class="journal">Journal of Cystic Fibrosis</div>
+                </div>
+
+                <div class="publication">
+                    <div class="authors">Gregory S. Sawicki et al., 2018</div>
+                    <div class="title">&ldquo;Risk Factors for Gaps in Care During Transfer from Pediatric to Adult Cystic Fibrosis Programs in the United States&rdquo;</div>
+                    <div class="journal">Annals of the American Thoracic Society</div>
+                </div>
+            </div>
+
+            <!-- TEACHING -->
+            <div id="teaching" class="tab-content">
+                <h2>Teaching</h2>
+                <p class="placeholder-text">Teaching information coming soon.</p>
+            </div>
+
+            <!-- CV -->
+            <div id="cv" class="tab-content">
+                <h2>CV</h2>
+                <div class="cv-text">
+                    <p>
+                        <a href="CV.pdf" target="_blank" rel="noopener">
+                            View CV (PDF)
+                        </a>
+                    </p>
+                </div>
+
+            </div>
+
+            <!-- CONTACT -->
+            <div id="contact" class="tab-content">
+                <h2>Contact</h2>
+                <div class="contact-info">
+                    <p>Email: <a href="mailto:camila.strassle@gmail.com">camila.strassle@gmail.com</a></p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll('.tab-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+
+                // Remove active from all links
+                document.querySelectorAll('.tab-link').forEach(l => l.classList.remove('active'));
+                // Add active to clicked link
+                this.classList.add('active');
+
+                // Hide all tab contents
+                document.querySelectorAll('.tab-content').forEach(tc => tc.classList.remove('active'));
+                // Show target tab
+                const target = this.getAttribute('data-tab');
+                document.getElementById(target).classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
